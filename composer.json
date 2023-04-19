@@ -1,6 +1,6 @@
 {
   "name": "fainohub/hyperf-opentelemetry",
-  "description": "Hyperf Opentelemetry",
+  "description": "OpenTelemetry for Hyperf Framework",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -15,12 +15,12 @@
   },
   "autoload" : {
     "psr-4" : {
-      "FainoHub\\HyperfOpentelemetry\\" :  "src/"
+      "FainoHub\\HyperfOpenTelemetry\\" :  "src/"
     }
   },
   "extra": {
     "hyperf": {
-      "config": "FainoHub\\HyperfOpentelemetry\\ConfigProvider"
+      "config": "FainoHub\\HyperfOpenTelemetry\\ConfigProvider"
     }
   }
 }

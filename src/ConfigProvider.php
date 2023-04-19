@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace FainoHub\HyperfOpentelemetry;
+namespace FainoHub\HyperfOpenTelemetry;
 
 /**
  * Class ConfigProvider
- * @package FainoHub\HyperfOpentelemetry
+ * @package FainoHub\HyperfOpenTelemetry
  */
 class ConfigProvider
 {
