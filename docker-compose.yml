@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  image:
+    container_name: hyperf-opentelemetry-image
+    image: hyperf-opentelemetry
+    command: list
+    build: .
+
+  composer:
+    container_name: hyperf-opentelemetry-composer
+    image: hyperf-opentelemetry
+    entrypoint: composer
+    volumes:
+      - ./:/app
