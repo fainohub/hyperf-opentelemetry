@@ -36,7 +36,6 @@ class MetricCollector
     {
         while (true) {
             $this->reader->collect();
-            $this->reader->forceFlush();
 
             $workerExited = CoordinatorManager::until(Constants::WORKER_EXIT)->yield(5);
 
