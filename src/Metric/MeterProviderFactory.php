@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hyperf\OpenTelemetry\Metric;
 
+use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ContainerInterface;
 use OpenTelemetry\API\Common\Signal\Signals;
 use OpenTelemetry\Contrib\Grpc\GrpcTransportFactory;
@@ -31,7 +32,7 @@ class MeterProviderFactory
     {
         $clock = ClockFactory::getDefault();
 
-        $config = $container->get(ContainerInterface::class);
+        $config = $container->get(ConfigInterface::class);
         $exporter = $this->getExporter($config->get('opentelemetry.metrics'));
 
         return new MeterProvider(
