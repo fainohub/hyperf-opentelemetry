@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2caa913fae5078ffe01d94e12c25c794",
+    "content-hash": "248f9029202aadcd6231a911bfca34dd",
     "packages": [
         {
             "name": "google/protobuf",
@@ -2812,6 +2812,62 @@
                 "hyperf",
                 "php",
                 "process"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "time": "2022-05-24T13:10:54+00:00"
+        },
+        {
+            "name": "hyperf/retry",
+            "version": "v2.2.33",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/retry.git",
+                "reference": "48920f15d4cbf6adf7f1f79ba6c0954a8dc95649"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/retry/zipball/48920f15d4cbf6adf7f1f79ba6c0954a8dc95649",
+                "reference": "48920f15d4cbf6adf7f1f79ba6c0954a8dc95649",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/utils": "~2.2.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0|^2.0"
+            },
+            "suggest": {
+                "hyperf/contract": "Required to use annotations.",
+                "hyperf/di": "Required to use annotations."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Retry\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Retry\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A retry component for hyperf.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "php",
+                "retry"
             ],
             "support": {
                 "docs": "https://hyperf.wiki",

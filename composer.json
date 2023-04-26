@@ -25,6 +25,7 @@
     "hyperf/di": "~2.2.0",
     "hyperf/event": "~2.2.0",
     "hyperf/process": "~2.2.0",
+    "hyperf/retry": "~2.2.0",
     "mockery/mockery": "^1.5",
     "phpunit/phpunit": "^9.5",
     "swoole/ide-helper": "^5.0"
