@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Hyperf\OpenTelemetry;
 
 use Hyperf\OpenTelemetry\Metric\MeterProviderFactory;
+use Hyperf\OpenTelemetry\Metric\MetricReaderFactory;
 use OpenTelemetry\SDK\Metrics\MeterProviderInterface;
+use OpenTelemetry\SDK\Metrics\MetricReaderInterface;
 
 /**
  * Class ConfigProvider
@@ -20,6 +22,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
+                MetricReaderInterface::class => MetricReaderFactory::class,
                 MeterProviderInterface::class => MeterProviderFactory::class
             ],
             'commands' => [
