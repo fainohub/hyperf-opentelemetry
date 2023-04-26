@@ -15,7 +15,7 @@
     "hyperf/process": "~2.2.0",
     "open-telemetry/sdk": "^0.0.17",
     "open-telemetry/exporter-otlp": "^0.0.17",
-    "symfony/http-client": "^6.2",
+    "symfony/http-client": "^6.0",
     "guzzlehttp/promises": "^1.5",
     "php-http/message-factory": "^1.1",
     "nyholm/psr7": "^1.7"
