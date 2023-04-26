@@ -6,6 +6,7 @@ namespace Hyperf\OpenTelemetry;
 
 use Hyperf\OpenTelemetry\Metric\MeterProviderFactory;
 use Hyperf\OpenTelemetry\Metric\MetricReaderFactory;
+use Hyperf\OpenTelemetry\Process\MetricProcess;
 use OpenTelemetry\SDK\Metrics\MeterProviderInterface;
 use OpenTelemetry\SDK\Metrics\MetricReaderInterface;
 
@@ -45,6 +46,9 @@ class ConfigProvider
                     'source' => __DIR__ . '/../publish/opentelemetry.php',
                     'destination' => BASE_PATH . '/config/autoload/opentelemetry.php',
                 ],
+            ],
+            'processes' => [
+                MetricProcess::class,
             ],
         ];
     }
