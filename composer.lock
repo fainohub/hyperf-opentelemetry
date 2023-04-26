@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "248f9029202aadcd6231a911bfca34dd",
+    "content-hash": "c27fe267bcdb96fbdf72ce395475b1a7",
     "packages": [
         {
             "name": "google/protobuf",
@@ -439,6 +439,48 @@
                 "source": "https://github.com/opentelemetry-php/gen-otlp-protobuf/tree/0.0.17"
             },
             "time": "2022-09-06T12:51:24+00:00"
+        },
+        {
+            "name": "open-telemetry/opentelemetry-php-contrib",
+            "version": "0.0.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/open-telemetry/opentelemetry-php-contrib.git",
+                "reference": "78d4ed9b23fb5ed28317660bc3d8f39f70101465"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/open-telemetry/opentelemetry-php-contrib/zipball/78d4ed9b23fb5ed28317660bc3d8f39f70101465",
+                "reference": "78d4ed9b23fb5ed28317660bc3d8f39f70101465",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "composer/xdebug-handler": "^2.0",
+                "open-telemetry/dev-tools": "dev-main"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OpenTelemetry\\Contrib\\Aws\\": "src/Aws/src",
+                    "OpenTelemetry\\Contrib\\Symfony\\": "src/Symfony/src",
+                    "OpenTelemetry\\Contrib\\Instrumentation\\Slim\\": "src/Instrumentation/Slim/src",
+                    "OpenTelemetry\\Contrib\\Instrumentation\\Psr15\\": "src/Instrumentation/Psr15/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "The contributor repo for opentelemetry-php",
+            "support": {
+                "source": "https://github.com/open-telemetry/opentelemetry-php-contrib/tree/0.0.17"
+            },
+            "abandoned": true,
+            "time": "2022-11-30T14:17:10+00:00"
         },
         {
             "name": "open-telemetry/sdk",
