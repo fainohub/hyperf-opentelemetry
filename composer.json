@@ -10,17 +10,27 @@
     }
   ],
   "require": {
+    "ext-grpc": "*",
     "php": ">=8.0",
-    "hyperf/config": "~2.2.0"
+    "hyperf/config": "~2.2.0",
+    "php-http/guzzle7-adapter": "^1.0",
+    "open-telemetry/sdk": "^0.0.17",
+    "open-telemetry/exporter-otlp": "^0.0.17",
+    "open-telemetry/transport-grpc": "^0.0.17"
   },
   "autoload" : {
     "psr-4" : {
-      "FainoHub\\HyperfOpenTelemetry\\" :  "src/"
+      "Hyperf\\OpenTelemetry\\" :  "src/"
     }
   },
   "extra": {
     "hyperf": {
-      "config": "FainoHub\\HyperfOpenTelemetry\\ConfigProvider"
+      "config": "Hyperf\\OpenTelemetry\\ConfigProvider"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   }
 }

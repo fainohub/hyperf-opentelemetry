@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-namespace FainoHub\HyperfOpenTelemetry;
+namespace Hyperf\OpenTelemetry;
+
+use Hyperf\OpenTelemetry\Metric\MeterProviderFactory;
+use OpenTelemetry\SDK\Metrics\MeterProviderInterface;
 
 /**
  * Class ConfigProvider
- * @package FainoHub\HyperfOpenTelemetry
+ * @package Hyperf\OpenTelemetry
  */
 class ConfigProvider
 {
@@ -17,7 +20,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                //
+                MeterProviderInterface::class => MeterProviderFactory::class
             ],
             'commands' => [
                 //
