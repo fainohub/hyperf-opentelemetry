@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hyperf\OpenTelemetry;
 
+use Hyperf\OpenTelemetry\Listener\OnBeforeHandle;
 use Hyperf\OpenTelemetry\Metric\MeterProviderFactory;
 use Hyperf\OpenTelemetry\Metric\MetricReaderFactory;
 use Hyperf\OpenTelemetry\Process\MetricProcess;
@@ -30,7 +31,7 @@ class ConfigProvider
                 //
             ],
             'listeners' => [
-
+                OnBeforeHandle::class,
             ],
             'annotations' => [
                 'scan' => [
