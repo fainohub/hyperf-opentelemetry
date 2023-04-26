@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "003e9de0671cb2152b6c2830e46b1216",
+    "content-hash": "7863cfa8cacb415ac19304311be7d12d",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -140,50 +140,6 @@
                 "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.22.3"
             },
             "time": "2023-04-12T23:38:34+00:00"
-        },
-        {
-            "name": "grpc/grpc",
-            "version": "1.52.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/grpc/grpc-php.git",
-                "reference": "98394cd601a587ca68294e6209bd713856969105"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/98394cd601a587ca68294e6209bd713856969105",
-                "reference": "98394cd601a587ca68294e6209bd713856969105",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.0"
-            },
-            "require-dev": {
-                "google/auth": "^v1.3.0"
-            },
-            "suggest": {
-                "ext-protobuf": "For better performance, install the protobuf C extension.",
-                "google/protobuf": "To get started using grpc quickly, install the native protobuf library."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Grpc\\": "src/lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "gRPC library for PHP",
-            "homepage": "https://grpc.io",
-            "keywords": [
-                "rpc"
-            ],
-            "support": {
-                "source": "https://github.com/grpc/grpc-php/tree/v1.52.0"
-            },
-            "time": "2023-02-25T05:20:08+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1193,72 +1149,17 @@
             "time": "2022-09-06T12:51:24+00:00"
         },
         {
-            "name": "open-telemetry/transport-grpc",
-            "version": "0.0.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/opentelemetry-php/transport-grpc.git",
-                "reference": "c0f6ffafdb0a1a49e7c8c9177bf007694c698d85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/opentelemetry-php/transport-grpc/zipball/c0f6ffafdb0a1a49e7c8c9177bf007694c698d85",
-                "reference": "c0f6ffafdb0a1a49e7c8c9177bf007694c698d85",
-                "shasum": ""
-            },
-            "require": {
-                "ext-grpc": "*",
-                "grpc/grpc": "*",
-                "open-telemetry/sdk": "self.version",
-                "php": "^7.4 || ^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "_register.php"
-                ],
-                "psr-4": {
-                    "OpenTelemetry\\Contrib\\Grpc\\": "."
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "opentelemetry-php contributors",
-                    "homepage": "https://github.com/open-telemetry/opentelemetry-php/graphs/contributors"
-                }
-            ],
-            "description": "gRPC transport for OpenTelemetry PHP.",
-            "keywords": [
-                "contrib",
-                "gRPC",
-                "opentelemetry",
-                "otel",
-                "otlp",
-                "tracing",
-                "transport"
-            ],
-            "support": {
-                "issues": "https://github.com/opentelemetry-php/transport-grpc/issues",
-                "source": "https://github.com/opentelemetry-php/transport-grpc/tree/0.0.17"
-            },
-            "time": "2022-11-29T22:54:23+00:00"
-        },
-        {
             "name": "php-http/discovery",
-            "version": "1.16.0",
+            "version": "1.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "d35947fe3f833f8776ed06274173622d36895f49"
+                "reference": "bd810d15957cf165230e65d9e1a130793265e3b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/d35947fe3f833f8776ed06274173622d36895f49",
-                "reference": "d35947fe3f833f8776ed06274173622d36895f49",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/bd810d15957cf165230e65d9e1a130793265e3b7",
+                "reference": "bd810d15957cf165230e65d9e1a130793265e3b7",
                 "shasum": ""
             },
             "require": {
@@ -1292,7 +1193,10 @@
             "autoload": {
                 "psr-4": {
                     "Http\\Discovery\\": "src/"
-                }
+                },
+                "exclude-from-classmap": [
+                    "src/Composer/Plugin.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1318,9 +1222,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/discovery/issues",
-                "source": "https://github.com/php-http/discovery/tree/1.16.0"
+                "source": "https://github.com/php-http/discovery/tree/1.17.0"
             },
-            "time": "2023-04-26T07:54:11+00:00"
+            "time": "2023-04-26T15:39:13+00:00"
         },
         {
             "name": "php-http/guzzle7-adapter",
@@ -2267,7 +2171,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-grpc": "*",
         "php": ">=8.0"
     },
     "platform-dev": [],
