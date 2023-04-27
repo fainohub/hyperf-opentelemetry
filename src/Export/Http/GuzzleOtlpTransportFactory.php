@@ -18,7 +18,7 @@ class GuzzleOtlpTransportFactory
         string $contentType,
         array $headers = [],
         $compression = null,
-        float $timeout = 10.,
+        float $timeout = 10,
         int $retryDelay = 100,
         int $maxRetries = 3,
         ?string $cacert = null,
@@ -29,25 +29,27 @@ class GuzzleOtlpTransportFactory
             $compression = null;
         }
 
-        $factory = new PsrTransportFactory(
-            new Client([
-                'client' => [
-                    'base_uri' => $endpoint,
-                    'timeout' => $timeout,
-                    'connect_timeout' => 1,
-                ],
-                'retry' => [
-                    'count' => $maxRetries,
-                    'delay_ms' => $retryDelay,
-                ],
-                'pool' => [
-                    'max_connections' => 50,
-                ],
-            ]),
-            Psr17FactoryDiscovery::findRequestFactory(),
-            Psr17FactoryDiscovery::findStreamFactory()
-        );
+        $client = new Client([
+            'client' => [
+                'base_uri' => $endpoint,
+                'timeout' => $timeout,
+                'connect_timeout' => 1,
+            ],
+            'pool' => [
+                'max_connections' => 50,
+            ],
+        ]);
 
-        return $factory->create($endpoint, $contentType, $headers, $compression);
+        return new PsrTransport(
+            $client,
+            Psr17FactoryDiscovery::findRequestFactory(),
+            Psr17FactoryDiscovery::findStreamFactory(),
+            $endpoint,
+            $contentType,
+            $headers,
+            (array) $compression,
+            $retryDelay,
+            $maxRetries,
+        );
     }
 }

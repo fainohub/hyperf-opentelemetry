@@ -36,7 +36,9 @@ class MetricCollector
     private function collect(): void
     {
         while (true) {
-            $this->reader->collect();
+            $result = $this->reader->collect();
+
+            var_dump($result);
 
             $workerExited = CoordinatorManager::until(Constants::WORKER_EXIT)->yield(5);
 
