@@ -19,17 +19,18 @@ class MetricCollector
 
     public function handle(): void
     {
-        Coroutine::create(function () {
-            if (class_exists(Retry::class)) {
-                Retry::whenThrows()->backoff(100)->call(function () {
-                    $this->collect();
-                });
-            } else {
-                retry(PHP_INT_MAX, function () {
-                    $this->collect();
-                }, 100);
-            }
-        });
+        $this->collect();
+//        Coroutine::create(function () {
+//            if (class_exists(Retry::class)) {
+//                Retry::whenThrows()->backoff(100)->call(function () {
+//                    $this->collect();
+//                });
+//            } else {
+//                retry(PHP_INT_MAX, function () {
+//                    $this->collect();
+//                }, 100);
+//            }
+//        });
     }
 
     private function collect(): void
