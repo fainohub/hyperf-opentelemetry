@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Hyperf\OpenTelemetry\Metric;
 
+use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ContainerInterface;
+use Hyperf\OpenTelemetry\Resource\ResourceFactory;
 use OpenTelemetry\SDK\Common\Attribute\Attributes;
 use OpenTelemetry\SDK\Common\Instrumentation\InstrumentationScopeFactory;
 use OpenTelemetry\SDK\Common\Log\LoggerHolder;
@@ -15,7 +17,6 @@ use OpenTelemetry\SDK\Metrics\MeterProviderInterface;
 use OpenTelemetry\SDK\Metrics\MetricReaderInterface;
 use OpenTelemetry\SDK\Metrics\StalenessHandler\ImmediateStalenessHandlerFactory;
 use OpenTelemetry\SDK\Metrics\View\CriteriaViewRegistry;
-use OpenTelemetry\SDK\Resource\ResourceInfoFactory;
 use Psr\Log\LoggerInterface;
 
 class MeterProviderFactory
@@ -31,9 +32,11 @@ class MeterProviderFactory
 
         $clock = ClockFactory::getDefault();
 
+        $resource = ResourceFactory::create($container->make(ConfigInterface::class));
+
         return new MeterProvider(
             null,
-            ResourceInfoFactory::defaultResource(),
+            $resource,
             $clock,
             Attributes::factory(),
             new InstrumentationScopeFactory(Attributes::factory()),

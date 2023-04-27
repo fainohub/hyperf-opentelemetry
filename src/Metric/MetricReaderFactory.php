@@ -6,14 +6,12 @@ namespace Hyperf\OpenTelemetry\Metric;
 
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ContainerInterface;
-use Hyperf\OpenTelemetry\Export\Http\GuzzleOtlpTransportFactory;
+use Hyperf\OpenTelemetry\Export\GuzzleOtlpTransportFactory;
 use OpenTelemetry\API\Common\Signal\Signals;
 use OpenTelemetry\Contrib\Grpc\GrpcTransportFactory;
 use OpenTelemetry\Contrib\Otlp\ContentTypes;
 use OpenTelemetry\Contrib\Otlp\MetricExporter;
-use OpenTelemetry\Contrib\Otlp\OtlpHttpTransportFactory;
 use OpenTelemetry\Contrib\Otlp\OtlpUtil;
-use OpenTelemetry\SDK\Common\Export\Http\PsrTransportFactory;
 use OpenTelemetry\SDK\Common\Export\Stream\StreamTransportFactory;
 use OpenTelemetry\SDK\Common\Export\TransportInterface;
 use OpenTelemetry\SDK\Common\Time\ClockFactory;

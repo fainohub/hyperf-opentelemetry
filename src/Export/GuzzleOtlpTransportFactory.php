@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hyperf\OpenTelemetry\Export\Http;
+namespace Hyperf\OpenTelemetry\Export;
 
 use GuzzleHttp\Client;
 use Http\Discovery\Psr17FactoryDiscovery;
 use OpenTelemetry\SDK\Common\Export\Http\PsrTransport;
-use OpenTelemetry\SDK\Common\Export\Http\PsrTransportFactory;
 
 class GuzzleOtlpTransportFactory
 {
