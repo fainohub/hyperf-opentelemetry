@@ -19,18 +19,17 @@ class MetricCollector
 
     public function handle(): void
     {
-        $this->collect();
-//        Coroutine::create(function () {
-//            if (class_exists(Retry::class)) {
-//                Retry::whenThrows()->backoff(100)->call(function () {
-//                    $this->collect();
-//                });
-//            } else {
-//                retry(PHP_INT_MAX, function () {
-//                    $this->collect();
-//                }, 100);
-//            }
-//        });
+        Coroutine::create(function () {
+            if (class_exists(Retry::class)) {
+                Retry::whenThrows()->backoff(100)->call(function () {
+                    $this->collect();
+                });
+            } else {
+                retry(PHP_INT_MAX, function () {
+                    $this->collect();
+                }, 100);
+            }
+        });
     }
 
     private function collect(): void
@@ -39,7 +38,6 @@ class MetricCollector
             $this->reader->collect();
 
             $workerExited = CoordinatorManager::until(Constants::WORKER_EXIT)->yield(5);
-
             if ($workerExited) {
                 break;
             }
