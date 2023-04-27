@@ -6,10 +6,12 @@ namespace Hyperf\OpenTelemetry\Metric;
 
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\ContainerInterface;
+use Hyperf\OpenTelemetry\Export\Http\GuzzleOtlpTransportFactory;
 use OpenTelemetry\API\Common\Signal\Signals;
 use OpenTelemetry\Contrib\Grpc\GrpcTransportFactory;
 use OpenTelemetry\Contrib\Otlp\ContentTypes;
 use OpenTelemetry\Contrib\Otlp\MetricExporter;
+use OpenTelemetry\Contrib\Otlp\OtlpHttpTransportFactory;
 use OpenTelemetry\Contrib\Otlp\OtlpUtil;
 use OpenTelemetry\SDK\Common\Export\Http\PsrTransportFactory;
 use OpenTelemetry\SDK\Common\Export\Stream\StreamTransportFactory;
@@ -42,7 +44,7 @@ class MetricReaderFactory
     {
         return match ($protocol) {
             'grcp' => (new GrpcTransportFactory())->create($endpoint . OtlpUtil::method(Signals::METRICS)),
-            default => PsrTransportFactory::discover()->create($endpoint, ContentTypes::JSON),
+            default => (new GuzzleOtlpTransportFactory())->create($endpoint, ContentTypes::JSON),
         };
     }
 }

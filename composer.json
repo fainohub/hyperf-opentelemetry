@@ -11,6 +11,7 @@
   ],
   "require": {
     "php": ">=8.0",
+    "hyperf/guzzle": "^2.2",
     "open-telemetry/sdk": "^0.0.17",
     "open-telemetry/exporter-otlp": "^0.0.17",
     "symfony/http-client": "^6.0",
