@@ -7,6 +7,7 @@ namespace Hyperf\OpenTelemetry\Metric;
 use Hyperf\Contract\ContainerInterface;
 use OpenTelemetry\SDK\Common\Attribute\Attributes;
 use OpenTelemetry\SDK\Common\Instrumentation\InstrumentationScopeFactory;
+use OpenTelemetry\SDK\Common\Log\LoggerHolder;
 use OpenTelemetry\SDK\Common\Time\ClockFactory;
 use OpenTelemetry\SDK\Metrics\Exemplar\ExemplarFilter\WithSampledTraceExemplarFilter;
 use OpenTelemetry\SDK\Metrics\MeterProvider;
@@ -15,6 +16,7 @@ use OpenTelemetry\SDK\Metrics\MetricReaderInterface;
 use OpenTelemetry\SDK\Metrics\StalenessHandler\ImmediateStalenessHandlerFactory;
 use OpenTelemetry\SDK\Metrics\View\CriteriaViewRegistry;
 use OpenTelemetry\SDK\Resource\ResourceInfoFactory;
+use Psr\Log\LoggerInterface;
 
 class MeterProviderFactory
 {
@@ -25,6 +27,8 @@ class MeterProviderFactory
 
     public function __invoke(ContainerInterface $container): MeterProviderInterface
     {
+        $this->setLogger($container);
+
         $clock = ClockFactory::getDefault();
 
         return new MeterProvider(
@@ -38,5 +42,14 @@ class MeterProviderFactory
             new WithSampledTraceExemplarFilter(),
             new ImmediateStalenessHandlerFactory()
         );
+    }
+
+    private function setLogger(ContainerInterface $container): void
+    {
+        try {
+            LoggerHolder::set($container->make(LoggerInterface::class));
+        } catch (\Throwable $exception) {
+            var_dump('set logger error: ' . $exception->getMessage());
+        }
     }
 }
