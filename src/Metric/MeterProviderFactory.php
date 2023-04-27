@@ -28,11 +28,13 @@ class MeterProviderFactory
 
     public function __invoke(ContainerInterface $container): MeterProviderInterface
     {
-        $this->setLogger($container);
+        $config = $container->make(ConfigInterface::class);
+
+        $this->setLogger($container, $config);
 
         $clock = ClockFactory::getDefault();
 
-        $resource = ResourceFactory::create($container->make(ConfigInterface::class));
+        $resource = ResourceFactory::create($config);
 
         return new MeterProvider(
             null,
@@ -47,10 +49,11 @@ class MeterProviderFactory
         );
     }
 
-    private function setLogger(ContainerInterface $container): void
+    private function setLogger(ContainerInterface $container, ConfigInterface $config): void
     {
         try {
-            LoggerHolder::set($container->make(LoggerInterface::class));
+            $loggerClass = $config->get('opentelemetry.logger', LoggerInterface::class);
+            LoggerHolder::set($container->make($loggerClass));
         } catch (\Throwable $exception) {
             var_dump('set logger error: ' . $exception->getMessage());
         }
