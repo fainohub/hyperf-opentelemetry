@@ -37,7 +37,7 @@ class ConfigProvider
                 //
             ],
             'listeners' => [
-                OnBeforeHandle::class,
+                //OnBeforeHandle::class,
             ],
             'annotations' => [
                 'scan' => [
@@ -55,7 +55,7 @@ class ConfigProvider
                 ],
             ],
             'processes' => [
-                MetricProcess::class,
+                //MetricProcess::class,
             ],
         ];
     }
