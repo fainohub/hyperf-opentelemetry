@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Hyperf\OpenTelemetry;
 
+use Hyperf\OpenTelemetry\Export\TransportFactory;
 use Hyperf\OpenTelemetry\Listener\OnBeforeHandle;
 use Hyperf\OpenTelemetry\Metric\MeterProviderFactory;
+use Hyperf\OpenTelemetry\Metric\MetricExporterFactory;
 use Hyperf\OpenTelemetry\Metric\MetricReaderFactory;
 use Hyperf\OpenTelemetry\Process\MetricProcess;
+use OpenTelemetry\SDK\Common\Export\TransportInterface;
 use OpenTelemetry\SDK\Metrics\MeterProviderInterface;
+use OpenTelemetry\SDK\Metrics\MetricExporterInterface;
 use OpenTelemetry\SDK\Metrics\MetricReaderInterface;
 
 /**
@@ -24,6 +28,8 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
+                TransportInterface::class => TransportFactory::class,
+                MetricExporterInterface::class => MetricExporterFactory::class,
                 MetricReaderInterface::class => MetricReaderFactory::class,
                 MeterProviderInterface::class => MeterProviderFactory::class
             ],
