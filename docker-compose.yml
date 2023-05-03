@@ -12,4 +12,12 @@ services:
     image: hyperf-opentelemetry
     entrypoint: composer
     volumes:
-      - ./:/app
+      - ./:/usr/local/src/
+
+  hyperf-opentelemetry:
+    container_name: laravel-otel-commons
+    image: hyperf-opentelemetry
+    entrypoint: sh
+    tty: true
+    volumes:
+      - ./:/usr/local/src/

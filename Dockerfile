@@ -1,16 +1,9 @@
-FROM php:8.0-cli-alpine
+FROM hyperf/hyperf:8.1-alpine-v3.16-swoole-v5.0
 
-RUN apk add --no-cache $PHPIZE_DEPS \
-    && pecl install pcov \
-    && echo 'extension=pcov.so' > /usr/local/etc/php/conf.d/pcov.ini
+WORKDIR /usr/local/src
 
-RUN curl --insecure https://getcomposer.org/composer-stable.phar -o /usr/bin/composer && \
-    chmod +x /usr/bin/composer
-
-WORKDIR /app
-
-COPY ./composer.* /app/
-
+COPY ./composer.* /usr/local/src/
 RUN composer install --prefer-dist
+COPY . /usr/local/src/
 
-COPY . /app/
+ENTRYPOINT [ "/bin/sh" ]

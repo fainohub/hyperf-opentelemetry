@@ -11,16 +11,40 @@
   ],
   "require": {
     "php": ">=8.0",
-    "hyperf/config": "~2.2.0"
+    "hyperf/guzzle": "^2.2",
+    "open-telemetry/sdk": "^0.0.17",
+    "open-telemetry/exporter-otlp": "^0.0.17",
+    "symfony/http-client": "^6.0",
+    "guzzlehttp/promises": "^1.5",
+    "php-http/message-factory": "^1.1",
+    "nyholm/psr7": "^1.7",
+    "open-telemetry/opentelemetry-php-contrib": "^0.0.17"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.13",
+    "hyperf/command": "~2.2.0",
+    "hyperf/config": "~2.2.0",
+    "hyperf/di": "~2.2.0",
+    "hyperf/event": "~2.2.0",
+    "hyperf/process": "~2.2.0",
+    "hyperf/retry": "~2.2.0",
+    "mockery/mockery": "^1.5",
+    "phpunit/phpunit": "^9.5",
+    "swoole/ide-helper": "^5.0"
   },
   "autoload" : {
     "psr-4" : {
-      "FainoHub\\HyperfOpenTelemetry\\" :  "src/"
+      "Hyperf\\OpenTelemetry\\" :  "src/"
     }
   },
   "extra": {
     "hyperf": {
-      "config": "FainoHub\\HyperfOpenTelemetry\\ConfigProvider"
+      "config": "Hyperf\\OpenTelemetry\\ConfigProvider"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   }
 }
