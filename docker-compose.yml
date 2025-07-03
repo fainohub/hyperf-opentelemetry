@@ -4,12 +4,20 @@ services:
   image:
     container_name: hyperf-opentelemetry-image
     image: hyperf-opentelemetry
-    command: list
-    build: .
+    build:
+      context: .
 
   composer:
     container_name: hyperf-opentelemetry-composer
     image: hyperf-opentelemetry
     entrypoint: composer
     volumes:
-      - ./:/app
+      - ./:/opt/www
+
+  hyperf-opentelemetry:
+    container_name: hyperf-opentelemetry-lib
+    image: hyperf-opentelemetry
+    entrypoint: sh
+    tty: true
+    volumes:
+      - ./:/opt/www

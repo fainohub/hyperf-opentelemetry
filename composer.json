@@ -1,7 +1,7 @@
 {
   "name": "fainohub/hyperf-opentelemetry",
-  "description": "OpenTelemetry for Hyperf Framework",
-  "minimum-stability": "stable",
+  "description": "OpenTelemetry component for Hyperf Framework",
+  "type": "library",
   "license": "MIT",
   "authors": [
     {
@@ -10,17 +10,37 @@
     }
   ],
   "require": {
-    "php": ">=8.0",
-    "hyperf/config": "~2.2.0"
+    "php": ">=8.1",
+    "ext-redis": "*",
+    "hyperf/command": "~3.1.0",
+    "hyperf/crontab": "~3.1.0",
+    "hyperf/database": "~3.1.0",
+    "hyperf/di": "~3.1.0",
+    "hyperf/event": "~3.1.0",
+    "hyperf/guzzle": "~3.1.0",
+    "hyperf/http-server": "~3.1.0",
+    "hyperf/redis": "~3.1.0",
+    "open-telemetry/api": "^1.1",
+    "open-telemetry/context-swoole": "^1.0",
+    "open-telemetry/exporter-otlp": "^1.1",
+    "open-telemetry/sdk": "^1.1",
+    "open-telemetry/sem-conv": "^1.27"
   },
   "autoload" : {
     "psr-4" : {
-      "FainoHub\\HyperfOpenTelemetry\\" :  "src/"
+      "FainoHub\\Hyperf\\OpenTelemetry\\" :  "src/"
     }
   },
   "extra": {
     "hyperf": {
-      "config": "FainoHub\\HyperfOpenTelemetry\\ConfigProvider"
+      "config": "FainoHub\\Hyperf\\OpenTelemetry\\ConfigProvider"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "php-http/discovery": false,
+      "tbachert/spi": false
     }
   }
 }
